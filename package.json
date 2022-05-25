@@ -1,6 +1,6 @@
 {
   "name": "goofoffcode",
-  "displayName": "摸鱼阅读",
+  "displayName": "代码摸鱼",
   "description": "在代码里面摸鱼",
   "version": "0.0.1",
   "engines": {
@@ -15,7 +15,8 @@
     "onCommand:goofoffcode.pageup",
     "onCommand:goofoffcode.pagedown",
     "onCommand:goofoffcode.jump",
-    "onCommand:goofoffcode.open.txt"
+    "onCommand:goofoffcode.open.txt",
+    "onCommand:goofoffcode.open.legado"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -73,6 +74,10 @@
       {
         "command": "goofoffcode.open.txt",
         "title": "GooOffCode: Open TXT Book"
+      },
+      {
+        "command": "goofoffcode.open.legado",
+        "title": "GooOffCode: Open Legado Book"
       }
     ],
     "keybindings": [

@@ -2,7 +2,8 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 const AbstractBook = require("./backend").AbstractBook;
-const vscodeOpenTxtBook = require("./backend/txtbook").vscodeOpenTxtBook;
+const { vscodeOpenTxtBook } = require("./backend/txtbook");
+const { vscodeOpenLegadoBook } = require('./backend/legado');
 
 const TEXT_LENGTH_LIMIT = 1024 * 1024 * 1024;
 /** @type {AbstractBook | null} */
@@ -116,6 +117,19 @@ function activate(context) {
 			return;
 		}
 		const bookOrNot = await vscodeOpenTxtBook();
+		if (!bookOrNot) {
+			return;
+		}
+		book = bookOrNot;
+		await book.load(conf.get("maxTextLength"));
+		await vscode.window.showInformationMessage("Book opened successfully.")
+	}));
+	context.subscriptions.push(vscode.commands.registerCommand("goofoffcode.open.legado", async function () {
+		const conf = vscode.workspace.getConfiguration("goofoffcode");
+		if (!conf.get("enable")) {
+			return;
+		}
+		const bookOrNot = await vscodeOpenLegadoBook();
 		if (!bookOrNot) {
 			return;
 		}
