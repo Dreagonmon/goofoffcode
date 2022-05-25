@@ -1,118 +1,121 @@
 {
   "name": "goofoffcode",
-	"displayName": "摸鱼阅读",
-	"description": "在代码里面摸鱼",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.66.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onCommand:goofoffcode.show",
-		"onCommand:goofoffcode.clear",
-		"onCommand:goofoffcode.pageup",
-		"onCommand:goofoffcode.pagedown",
-		"onCommand:goofoffcode.jump",
-		"onCommand:goofoffcode.open.txt"
-	],
-	"main": "./extension.js",
-	"contributes": {
-		"configuration": {
-			"title": "GoofoffCode",
-			"properties": {
-				"goofoffcode.enable": {
-					"description": "enable this extensition.",
-					"type": "boolean",
-					"default": true
-				},
-				"goofoffcode.marker.prefix": {
-					"description": "text begin marker.",
-					"type": "string",
-					"default": "|>>"
-				},
-				"goofoffcode.marker.postfix": {
-					"description": "text end marker.",
-					"type": "string",
-					"default": "<<|"
-				},
-				"goofoffcode.clearText": {
-					"description": "text that used to clear the mark area.",
-					"type": "string",
-					"default": "= Test ="
-				},
-				"goofoffcode.maxTextLength": {
-					"description": "max text length",
-					"type": "number",
-					"default": 32
-				}
-			}
-		},
-		"commands": [
-			{
-				"command": "goofoffcode.show",
-				"title": "GooOffCode: Show"
-			},
-			{
-				"command": "goofoffcode.clear",
-				"title": "GooOffCode: Clear"
-			},
-			{
-				"command": "goofoffcode.pageup",
-				"title": "GooOffCode: Page Up"
-			},
-			{
-				"command": "goofoffcode.pagedown",
-				"title": "GooOffCode: Page Down"
-			},
-			{
-				"command": "goofoffcode.jump",
-				"title": "GooOffCode: Jump To Chapter"
-			},
-			{
-				"command": "goofoffcode.open.txt",
-				"title": "GooOffCode: Open TXT Book"
-			}
-		],
-		"keybindings": [
-			{
-				"command": "goofoffcode.show",
-				"key": "ctrl+alt+[Insert]",
-				"when": "editorTextFocus"
-			},
-			{
-				"command": "goofoffcode.clear",
-				"key": "ctrl+alt+[Delete]",
-				"when": "editorTextFocus"
-			},
-			{
-				"command": "goofoffcode.pageup",
-				"key": "ctrl+alt+[Minus]",
-				"when": "editorTextFocus"
-			},
-			{
-				"command": "goofoffcode.pagedown",
-				"key": "ctrl+alt+[Equal]",
-				"when": "editorTextFocus"
-			}
-		]
-	},
-	"scripts": {
-		"lint": "eslint .",
-		"pretest": "npm run lint",
-		"test": "node ./test/runTest.js"
-	},
-	"devDependencies": {
-        "@types/vscode": "^1.67.0",
-        "@types/glob": "^7.2.0",
-        "@types/mocha": "^9.1.1",
-        "@types/node": "14.x",
-        "eslint": "^8.14.0",
-        "glob": "^8.0.1",
-        "mocha": "^9.2.2",
-        "typescript": "^4.6.4",
-        "@vscode/test-electron": "^2.1.3"
+  "displayName": "摸鱼阅读",
+  "description": "在代码里面摸鱼",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.66.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:goofoffcode.show",
+    "onCommand:goofoffcode.clear",
+    "onCommand:goofoffcode.pageup",
+    "onCommand:goofoffcode.pagedown",
+    "onCommand:goofoffcode.jump",
+    "onCommand:goofoffcode.open.txt"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "GoofoffCode",
+      "properties": {
+        "goofoffcode.enable": {
+          "description": "enable this extensition.",
+          "type": "boolean",
+          "default": true
+        },
+        "goofoffcode.marker.prefix": {
+          "description": "text begin marker.",
+          "type": "string",
+          "default": "|>>"
+        },
+        "goofoffcode.marker.postfix": {
+          "description": "text end marker.",
+          "type": "string",
+          "default": "<<|"
+        },
+        "goofoffcode.clearText": {
+          "description": "text that used to clear the mark area.",
+          "type": "string",
+          "default": "= Test ="
+        },
+        "goofoffcode.maxTextLength": {
+          "description": "max text length",
+          "type": "number",
+          "default": 32
+        }
+      }
     },
-	"license": "MIT"
+    "commands": [
+      {
+        "command": "goofoffcode.show",
+        "title": "GooOffCode: Show"
+      },
+      {
+        "command": "goofoffcode.clear",
+        "title": "GooOffCode: Clear"
+      },
+      {
+        "command": "goofoffcode.pageup",
+        "title": "GooOffCode: Page Up"
+      },
+      {
+        "command": "goofoffcode.pagedown",
+        "title": "GooOffCode: Page Down"
+      },
+      {
+        "command": "goofoffcode.jump",
+        "title": "GooOffCode: Jump To Chapter"
+      },
+      {
+        "command": "goofoffcode.open.txt",
+        "title": "GooOffCode: Open TXT Book"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "goofoffcode.show",
+        "key": "ctrl+alt+[Insert]",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "goofoffcode.clear",
+        "key": "ctrl+alt+[Delete]",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "goofoffcode.pageup",
+        "key": "ctrl+alt+[Minus]",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "goofoffcode.pagedown",
+        "key": "ctrl+alt+[Equal]",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "14.x",
+    "@types/vscode": "^1.67.0",
+    "@vscode/test-electron": "^2.1.3",
+    "eslint": "^8.14.0",
+    "glob": "^8.0.1",
+    "mocha": "^9.2.2",
+    "typescript": "^4.6.4"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
 }
