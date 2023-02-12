@@ -75,6 +75,7 @@ function activate(context) {
 		if (book) {
 			await book.pageUp(conf.get("maxTextLength"));
 			await replaceContent(textEditor);
+			await book.save();
 		}
 	}));
 	context.subscriptions.push(vscode.commands.registerTextEditorCommand('goofoffcode.pagedown', async function (textEditor, edit) {
@@ -85,6 +86,7 @@ function activate(context) {
 		if (book) {
 			await book.pageDown(conf.get("maxTextLength"));
 			await replaceContent(textEditor);
+			await book.save();
 		}
 	}));
 	context.subscriptions.push(vscode.commands.registerTextEditorCommand('goofoffcode.jump', async function (textEditor, edit) {

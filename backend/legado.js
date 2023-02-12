@@ -58,7 +58,7 @@ class LegadoBook extends backend.AbstractBook {
                 position: chapterItem.index,
             };
         });
-        await this.#loadChapter(bookListItem.chapterIndex, bookListItem.chapterTitle);
+        await this.#loadChapter(bookListItem.chapterIndex, bookListItem.chapterTitle, bookListItem.chapterPos);
     }
     async load(maxLength) {
         await this.#loadNextPage(this.#bookListItem.chapterPos, maxLength);
@@ -128,7 +128,7 @@ class LegadoBook extends backend.AbstractBook {
     }
     async pageDown(maxLength) {
         const startOffset = this.#bookListItem.chapterPos + this.#pageTextSize;
-        return await this.#loadNextPage(startOffset, maxLength);
+        await this.#loadNextPage(startOffset, maxLength);
     }
     async getChapterList() {
         return this.#chapters.map((cpt) => cpt.chapter);
@@ -148,7 +148,7 @@ class LegadoBook extends backend.AbstractBook {
         }
         return index.toString();
     }
-    async #loadChapter(index, title) {
+    async #loadChapter(index, title, chapter_pos = 0) {
         const url = `${this.#serverPath}/getBookContent?url=`+encodeURIComponent(this.#bookListItem.bookUrl)+"&index="+encodeURIComponent(index);
         const resp = await (await fetch(url, {
             headers: {
@@ -156,7 +156,7 @@ class LegadoBook extends backend.AbstractBook {
             },
         })).json();
         this.#bookListItem.chapterIndex = index;
-        this.#bookListItem.chapterPos = 0;
+        this.#bookListItem.chapterPos = chapter_pos;
         this.#bookListItem.chapterTitle = title;
         this.#buffer = resp.data;
     }
